@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">The Book</string>
+    <string name="splash_top_title">National best seller</string>
+    <string name="title">The book</string>
+    <string name="author">Diem Phuong</string>
+    <string name="introduce">The Stories are collected from all over the world</string>
+    <string name="homeFragment">Home</string>
+    <string name="detailFragment">Detail</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome">Welcome\n%1$s</string>
+    <string name="search">Search your books …</string>
+    <string name="image_description">image_description</string>
+    <string name="publish_date">Publish date: $s</string>
+    <string name="recent_read"><u>Read recently</u></string>
+    <string name="popular_book"><u>Popular Books</u></string>
+    <string name="book_author">Author: $s</string>
+    <string-array name="types_of_book">
+        <item>Fiction</item>
+        <item>Non-fiction</item>
+        <item>Poetry</item>
+        <item>Children\'s Books</item>
+        <item>Graphic Novels/Comics:</item>
+        <item>Reference Books</item>
+        <item>Religious/Spiritual Books</item>
+    </string-array>
+</resources>

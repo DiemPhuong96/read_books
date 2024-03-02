@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/black"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:paddingHorizontal="@dimen/padding_16dp"
+        android:paddingVertical="@dimen/padding_30dp">
+
+        <TextView
+            style="@style/Text_White_16"
+            android:id="@+id/txtWelcome"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/welcome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:background="@drawable/background_radius_10"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/margin_15dp"
+            android:layout_marginStart="@dimen/margin_25dp"
+            android:layout_width="0dp"
+            android:paddingHorizontal="@dimen/padding_5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/txtWelcome"
+            app:layout_constraintEnd_toStartOf="@+id/imgAvatar"
+            app:layout_constraintStart_toEndOf="@+id/txtWelcome"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:hint="@string/search"
+                style="@style/Text_White_14"
+                android:id="@+id/edSearch"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textColorHint="@color/white60"/>
+
+            <ImageView
+                android:contentDescription="@string/image_description"
+                android:id="@+id/iconSearch"
+                android:layout_height="24dp"
+                android:layout_width="24dp"
+                android:src="@drawable/icon_search"
+                android:layout_gravity="center_vertical|end"/>
+        </FrameLayout>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgAvatar"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/avatar_fake"
+            app:layout_constraintBottom_toBottomOf="@id/txtWelcome"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/circleImageView"
+            app:strokeColor="@android:color/darker_gray"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/flexTag"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:layout_width="0dp"
+            app:flexWrap="wrap"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/spinType"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtWelcome">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Text_White_14"
+                android:background="@drawable/background_radius_8"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:padding="@dimen/padding_5dp"
+                tools:text="Novel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Text_White_14"
+                android:background="@drawable/background_radius_8"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:padding="@dimen/padding_5dp"
+                tools:text="Novel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Text_White_14"
+                android:background="@drawable/background_radius_8"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:padding="@dimen/padding_5dp"
+                tools:text="Novel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Text_White_14"
+                android:background="@drawable/background_radius_8"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:padding="@dimen/padding_5dp"
+                tools:text="Novel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Text_White_14"
+                android:background="@drawable/background_radius_8"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:padding="@dimen/padding_5dp"
+                tools:text="Novel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Text_White_14"
+                android:background="@drawable/background_radius_8"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:padding="@dimen/padding_5dp"
+                tools:text="Novel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Text_White_14"
+                android:background="@drawable/background_radius_8"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:padding="@dimen/padding_5dp"
+                tools:text="Novel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Text_White_14"
+                android:background="@drawable/background_radius_8"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:padding="@dimen/padding_5dp"
+                tools:text="Novel" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <Spinner
+            android:background="@drawable/background_radius_8"
+            android:id="@+id/spinType"
+            android:layout_height="@dimen/height_32dp"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:paddingHorizontal="@dimen/padding_5dp"
+            android:layout_width="@dimen/width_120dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtWelcome" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgNewBook"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_30dp"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/new_ghost"
+            app:layout_constraintTop_toBottomOf="@+id/flexTag" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgNew"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/icon_new"
+            app:layout_constraintStart_toStartOf="@+id/imgNewBook"
+            app:layout_constraintTop_toTopOf="@+id/imgNewBook" />
+
+        <TextView
+            style="@style/text_black_12_bold"
+            android:background="@drawable/background_purple_radius_4"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:padding="7dp"
+            android:text="@string/publish_date"
+            app:layout_constraintBottom_toBottomOf="@+id/imgNewBook"
+            app:layout_constraintStart_toStartOf="@id/imgNewBook" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgNewBook"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_book_category" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
