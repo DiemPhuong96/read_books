@@ -14,12 +14,16 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.thebook.R
 import com.example.thebook.connection.ApiClient
 import com.example.thebook.databinding.FragmentHomeBinding
-import com.example.thebook.model.Categories
+import com.example.thebook.model.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -62,29 +66,27 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.txtWelcome.text = getString(R.string.welcome, "Phuong")
-//        val call = ApiClient.apiService.getMyBooks()
-//        call.enqueue(object : Callback<MyBooks> {
-//            override fun onResponse(call: Call<MyBooks>, response: Response<MyBooks>) {\
-//                if(response.isSuccessful) {
-//                    val data = response.body()
-//                    Log.d("phuong success", "${data?.myBooks?.book?.get(0)?.author}")
-//                } else {
-//                    Log.d("phuong fail", "${response.body()}")
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<MyBooks>, t: Throwable) {
-//                Log.d("phuong on fail", "${t.message}")
-//            }
-//
-//        })
+        val call = ApiClient.apiService.getMyBooks()
+        call.enqueue(object : Callback<MyBooks> {
+            override fun onResponse(call: Call<MyBooks>, response: Response<MyBooks>) {
+                if(response.isSuccessful) {
+                    val data = response.body()
+                    Log.d("phuong success", "${data?.myBooks?.book}")
+                    data?.myBooks?.book?.let { initSectionAdapter(it) }
+                } else {
+                    Log.d("phuong fail", "${response.body()}")
+                }
+            }
+
+            override fun onFailure(call: Call<MyBooks>, t: Throwable) {
+                Log.d("phuong on fail", "${t.message}")
+            }
+
+        })
         val spinner: Spinner = binding.spinType
         val adapter = ArrayAdapter.createFromResource(requireContext(), R.array.types_of_book, R.layout.book_type_spinner_item)
         adapter.setDropDownViewResource(R.layout.book_type_spinner_dropdown_item)
         spinner.adapter = adapter
-//        binding.txtHome.setOnClickListener {
-//            findNavController().navigate(HomeFragmentDirections.actionFromHomeFragmentToDetailFragment())
-//        }
 
         val callCategories = ApiClient.apiService.getCategories()
         callCategories.enqueue(object : Callback<Categories> {
@@ -94,28 +96,46 @@ class HomeFragment : Fragment() {
                     data?.let { addCategory(it) }
                 } else {
                     Log.d("phuong fail category", "${response.body()}")
+                    val data = Categories()
+                    data.catelory = arrayListOf(Category(id = "1", name = "Novel"), Category(id = "2", name = "horror"), Category("3", "Funny"))
+                    addCategory(data)
                 }
             }
 
             override fun onFailure(call: Call<Categories>, t: Throwable) {
                 Log.d("phuong on fail category", "${t.message}")
+                val data = Categories()
+                data.catelory = arrayListOf(Category(id = "1", name = "Novel"), Category(id = "2", name = "horror"), Category("3", "Funny"))
+                addCategory(data)
             }
 
         })
 
     }
 
+    private fun initSectionAdapter(books : ArrayList<Book>) {
+        val listSection = arrayListOf<Section>()
+        books.forEach {
+            val section = it.section
+            if (section !in listSection) {
+                section?.let { it1 -> listSection.add(it1) }
+            }
+        }
+        Log.d("sectionlist", listSection.size.toString())
+        val adapter = SectionAdapter(listSection, books)
+        binding.recSections.layoutManager = LinearLayoutManager(requireContext())
+        binding.recSections.adapter = adapter
+        adapter.onItemSectionClick = {
+            findNavController().navigate(HomeFragmentDirections.actionFromHomeFragmentToDetailFragment(it))
+        }
+    }
     private fun addCategory(categories: Categories) {
         //remove view
         binding.flexTag.removeAllViews()
         // add tag
         for (category in categories.catelory) {
-            val tag = AppCompatTextView(requireContext())
-            tag.layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            )
-            tag.text = category.name
+            val tag = View.inflate(requireContext(), R.layout.item_category, null)
+            tag.findViewById<TextView>(R.id.txt_tag).text = category.name
             binding.flexTag.addView(tag)
         }
     }

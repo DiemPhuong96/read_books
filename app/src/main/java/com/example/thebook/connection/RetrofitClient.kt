@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 object RetrofitClient {
-    private const val BASE_URL = "https://8e94f24d-a512-4b56-80b9-c563617d5c7f.mock.pstmn.io/"
+    private const val BASE_URL = "https://0903efc0-2e6e-422c-9b0b-ec3044ce388c.mock.pstmn.io/"
     val retrofit: Retrofit by lazy {
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
