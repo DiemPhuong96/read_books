@@ -17,8 +17,12 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.thebook.DetailFragment"
+        android:name="com.example.thebook.view.bookdetail.DetailFragment"
         tools:layout="@layout/fragment_detail"
-        android:label="@string/detailFragment"/>
+        android:label="@string/detailFragment">
+        <argument
+            android:name="bookDetail"
+            app:argType="com.example.thebook.model.Book"/>
+    </fragment>
 
 </navigation>

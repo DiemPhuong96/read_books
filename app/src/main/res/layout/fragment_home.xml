@@ -179,10 +179,11 @@
             app:layout_constraintStart_toStartOf="@id/imgNewBook" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recSections"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             app:layout_constraintTop_toBottomOf="@+id/imgNewBook"
             tools:itemCount="3"
-            tools:listitem="@layout/item_book_category" />
+            tools:listitem="@layout/item_book_section" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

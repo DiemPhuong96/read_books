@@ -7,7 +7,7 @@
     android:background="@color/black">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txtCategoryName"
+        android:id="@+id/txtSectionName"
         style="@style/Text_White_16"
         android:layout_width="wrap_content"
         android:layout_marginTop="@dimen/margin_26dp"
@@ -17,13 +17,13 @@
         tools:text="Recently Book"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/reRecently"
+        android:id="@+id/reBooks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_16dp"
         tools:itemCount="4"
         tools:listitem="@layout/item_book"
-        app:layout_constraintTop_toBottomOf="@id/txtCategoryName"
+        app:layout_constraintTop_toBottomOf="@id/txtSectionName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:orientation="horizontal"
