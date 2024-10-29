@@ -48,10 +48,12 @@ class SectionAdapter(private val sections: ArrayList<Section>, private val books
         adapter.onItemClick = {
             onItemSectionClick.invoke(it)
         }
+        Log.d("phuong1", bookList.size.toString())
     }
 
     override fun getItemCount(): Int {
         Log.d("sectionSize", sections.size.toString())
+        Log.d("phuongtest_ checkout", sections.size.toString())
         return sections.size
     }
 }
