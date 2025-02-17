@@ -52,6 +52,9 @@ class SectionAdapter(private val sections: ArrayList<Section>, private val books
 
     override fun getItemCount(): Int {
         Log.d("sectionSize", sections.size.toString())
+        Log.d("sectionSize develop", sections.size.toString())
+        Log.d("sectionSize develop", sections.size.toString())
+        Log.d("sectionSize develop", sections.size.toString())
         return sections.size
     }
 }
