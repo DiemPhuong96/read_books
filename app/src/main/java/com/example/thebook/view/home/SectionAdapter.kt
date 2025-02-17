@@ -5,7 +5,6 @@
 
 package com.example.thebook.view.home
 
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -42,7 +41,6 @@ class SectionAdapter(private val sections: ArrayList<Section>, private val books
             }
         }
         val adapter = BookAdapter(bookList)
-        Log.d("cccc", bookList.size.toString())
         holder.recBooks.layoutManager = LinearLayoutManager(holder.itemView.context, LinearLayoutManager.HORIZONTAL, false)
         holder.recBooks.adapter = adapter
         adapter.onItemClick = {
@@ -51,11 +49,6 @@ class SectionAdapter(private val sections: ArrayList<Section>, private val books
     }
 
     override fun getItemCount(): Int {
-        Log.d("sectionSize", sections.size.toString())
-        Log.d("sectionSize develop", sections.size.toString())
-        Log.d("sectionSize develop", sections.size.toString())
-        Log.d("sectionSize develop", sections.size.toString())
-        newFunForTest()
         return sections.size
     }
     private fun newFunForTest() {
