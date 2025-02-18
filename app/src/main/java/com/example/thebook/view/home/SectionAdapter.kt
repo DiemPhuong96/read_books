@@ -59,6 +59,6 @@ class SectionAdapter(private val sections: ArrayList<Section>, private val books
         return sections.size
     }
     private fun newFunForTest() {
-        Log.d("phuong", "toi dau dau qua di mat")
+        Log.d("phuong", "chung toi dau dau qua di mat")
     }
 }
